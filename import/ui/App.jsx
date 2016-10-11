@@ -22,17 +22,12 @@ class App extends Component {
         // Find the text field via the React ref
         const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
 
-        if(this.props.currentUser){
-            Tasks.insert({
-                text,
-                createdAt: new Date(), // current time
-                owner: Meteor.userId(),           // _id of logged in user
-                email: Meteor.user().email,  // email of logged in user
-            });
+        //if(this.props.currentUser){
+            Meteor.call('tasks.insert', text);
             ReactDOM.findDOMNode(this.refs.textInput).value = '';
-        }else {
+        /*}else {
             alert('Login to add task');
-        }
+        }*/
 
     }
     renderTasks() {
@@ -55,6 +50,7 @@ class App extends Component {
             <div className="container">
                 <header>
                     <h1>Todo List  ({this.props.incompleteCount}) </h1>
+                    <AccountsUIWrapper />
                     <label className="hide-completed">
                         <input
                             type="checkbox"
@@ -64,12 +60,12 @@ class App extends Component {
                         />
                         Hide Completed Tasks
                     </label>
-                    <AccountsUIWrapper />
                         <form className="new-task" onSubmit={this.handleSubmit.bind(this)} >
                         <input
                             type="text"
                             ref="textInput"
-                            placeholder="Type to add new tasks"
+                            placeholder={this.props.currentUser ? "Type to add new tasks" : "Login to add new task"}
+                            disabled = {this.props.currentUser ? false : true }
                         />
                     </form>
                 </header>
@@ -77,7 +73,7 @@ class App extends Component {
                 <ul>
                     {this.renderTasks()}
                 </ul>
-                    : <p><b><center>Login to see</center></b></p>
+                    :''
                 }
             </div>
         );
@@ -91,9 +87,10 @@ App.propTypes = {
 };
 
 export default createContainer(() => {
+    Meteor.subscribe('tasks');
     return {
-        tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-        incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
+        tasks: Tasks.find({"owner":Meteor.userId()}, { sort: { createdAt: -1 } }).fetch(),
+        incompleteCount: Tasks.find({ checked: { $ne: true }, "owner":Meteor.userId()}).count(),
         currentUser: Meteor.user(),
     };
 }, App);

@@ -123,6 +123,8 @@
         <item url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/min-max-heap.js" />
         <item url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/min-heap.js" />
         <item url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/max-heap.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/js/bootstrap.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/css/bootstrap.css" />
         <item url="file://$USER_HOME$/.meteor/packages/http/1.1.8/web.browser/deprecated.js" />
         <item url="file://$USER_HOME$/.meteor/packages/http/1.1.8/web.browser/test_responder.js" />
         <item url="file://$USER_HOME$/.meteor/packages/id-map/1.0.8/web.browser/id-map.js" />
@@ -299,6 +301,8 @@
       <root url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/min-max-heap.js" />
       <root url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/min-heap.js" />
       <root url="file://$USER_HOME$/.meteor/packages/binary-heap/1.0.9/web.browser/max-heap.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/js/bootstrap.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/css/bootstrap.css" />
       <root url="file://$USER_HOME$/.meteor/packages/http/1.1.8/web.browser/deprecated.js" />
       <root url="file://$USER_HOME$/.meteor/packages/http/1.1.8/web.browser/test_responder.js" />
       <root url="file://$USER_HOME$/.meteor/packages/id-map/1.0.8/web.browser/id-map.js" />
