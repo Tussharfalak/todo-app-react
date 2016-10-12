@@ -21,6 +21,7 @@ Meteor.methods({
         }
 
         Tasks.insert({
+            _id: new Mongo.Collection.ObjectID(),
             text,
             createdAt: new Date(),
             owner: this.userId,
@@ -28,7 +29,8 @@ Meteor.methods({
         });
     },
     'tasks.remove'(taskId) {
-        check(taskId, String);
+        //alert(taskId instanceof Mongo.ObjectID);
+        check(taskId, Mongo.ObjectID);
 
         Tasks.remove(taskId);
     },
